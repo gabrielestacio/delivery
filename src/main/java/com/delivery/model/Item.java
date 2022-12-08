@@ -12,7 +12,7 @@ public class Item{
 	private String name;
 	private Double value;
 	private Double weight;
-	private Double area;
+	private Double volume;
 	private Date registrationDate;
 	private ItemState state;
 	private DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.DEFAULT, new Locale("br", "BR"));
@@ -22,12 +22,12 @@ public class Item{
 		//id
 	}
 	
-	public Item(String name, Double value, Double weight, Double area, Date registrationDate, ItemState state, String description) {
+	public Item(String name, Double value, Double weight, Double volume, Date registrationDate, ItemState state, String description) {
 		//id
 		this.name = name;
 		this.value = value;
 		this.weight = weight;
-		this.area = area;
+		this.volume = volume;
 		this.registrationDate = registrationDate;
 		this.state = state;
 		this.description = description;
@@ -65,12 +65,12 @@ public class Item{
 		this.weight = weight;
 	}
 	
-	public Double getArea() {
-		return area;
+	public Double getVolume() {
+		return volume;
 	}
 	
-	public void setArea(Double volume) {
-		this.area = volume;
+	public void setVolume(Double volume) {
+		this.volume = volume;
 	}
 	
 	public Date getRegistrationDate() {
@@ -81,6 +81,14 @@ public class Item{
 		this.registrationDate = registration;
 	}
 	
+	public ItemState getState() {
+		return state;
+	}
+
+	public void setState(ItemState state) {
+		this.state = state;
+	}
+
 	public String getDescription() {
 		return description;
 	}
@@ -121,7 +129,7 @@ public class Item{
 	@Override
 	public String toString() {
 		return "Item " + id + " [name = " + name + ", value = " + value +
-				", weight = " + weight + ", area = " + area + ", registration = " + ", state = " + state.toString() +
+				", weight = " + weight + ", volume = " + volume + ", registration = " + ", state = " + state.toString() +
 				dateFormat.format(registrationDate) + ", description = " + description + "]";
 	}
 	
@@ -132,7 +140,7 @@ public class Item{
 		temp.append("name", name);
 		temp.append("value", value);
 		temp.append("weight", weight);
-		temp.append("area", area);
+		temp.append("volume", volume);
 		temp.append("state", state.toString());
 		temp.append("registration", dateFormat.format(registrationDate));
 		temp.append("description", description);

@@ -12,18 +12,21 @@ public class Business{
 	private String telephone;
 	private List<Item> menu;
 	private List<Order> activeOrders;
+	private BusinessState state;
 	
 	public Business() {
-		menu = new ArrayList<Item>();
-		activeOrders = new ArrayList<Order>();
+		this.menu = new ArrayList<Item>();
+		this.activeOrders = new ArrayList<Order>();
+		this.state = BusinessState.OPEN;
 	}
 	
-	public Business(String name, String address, String telephone, ArrayList<Item> menu, ArrayList<Order> activeOrders) {
+	public Business(String name, String address, String telephone, ArrayList<Item> menu, ArrayList<Order> activeOrders, BusinessState state) {
 		this.name = name;
 		this.address = address;
 		this.telephone = telephone;
 		this.menu = menu;
 		this.activeOrders = activeOrders;
+		this.state = state;
 	}
 	
 	public Integer getId() {
@@ -74,6 +77,14 @@ public class Business{
 		this.activeOrders = activeOrders;
 	}
 	
+	public BusinessState getState() {
+		return state;
+	}
+
+	public void setState(BusinessState state) {
+		this.state = state;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
